@@ -1,0 +1,260 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* Asignamos la fuente a todo el body */
+  font-family: "Lato";
+}
+
+.pantalla {
+  /* Le damos un valor de 100vh que será del 100% de alto de visualización del dispositivo + un color blanco al texto y lo alineamos al centro  */
+  height: 100vh;
+  color: white;
+  text-align: center;
+}
+
+.bloque {
+  /* le damos unos valores a todos los elementos de clase bloque */
+  position: absolute;
+  width: 20%; /* ancho de cada bloque */
+  height: 100vh;
+  overflow: hidden; /* valor para que estén ocultos antes de aparecer */
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* indicamos la posición de cada bloque, usando el nth-child para darle un valor diferente a cada hijo */
+
+.bloque:nth-child(1) {
+  left: 0;
+}
+.bloque:nth-child(2) {
+  left: 20vw;
+}
+.bloque:nth-child(3) {
+  left: 40vw;
+}
+.bloque:nth-child(4) {
+  left: 60vw;
+}
+.bloque:nth-child(5) {
+  left: 80vw;
+}
+
+/* valor del tamaño de la fuente en h1 */
+h1 {
+  font-size: 60px;
+}
+
+/* valores a cada bloque con su color el nombre de la animación creada más abajo y el tiempo de delay para que no aparezcan todos de una vez */
+
+.bloque:nth-child(1) .contenido_bloque {
+  background: #244f75;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  animation-name: bloque1;
+  animation-delay: 0.5s; /* mismo valor del último bloque para que aparezcan juntos cuando ya han entrado los otros 3 bloques*/
+}
+
+.bloque:nth-child(2) .contenido_bloque {
+  background: #60bfbf;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  animation-name: bloque2;
+  animation-delay: 0.2s;
+}
+
+.bloque:nth-child(3) .contenido_bloque {
+  background: #8c4b7e;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  animation-name: bloque3;
+  animation-delay: 0.3s;
+}
+
+.bloque:nth-child(4) .contenido_bloque {
+  background: #f8bb44;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  animation-name: bloque4;
+  animation-delay: 0.4s;
+}
+
+.bloque:nth-child(5) .contenido_bloque {
+  background: #f24b4b;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  animation-name: bloque5;
+  animation-delay: 0.5s;
+}
+
+.pantalla .contenido_bloque {
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation-fill-mode: both;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  text-decoration: none;
+}
+
+/*  valores de la animación a la barra transversal. Con valores de opacidad, inclinación del bloque y valor de pointer al cursor, color, tiempo de transición */
+
+.pantalla .contenido_bloque:hover:before {
+  -webkit-transform: skew(0deg) scale(3) translate(0, 0);
+  transform: skew(0deg) scale(3) translate(0, 0);
+  opacity: 0.1;
+  cursor: pointer;
+}
+
+.pantalla .contenido_bloque:before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: white;
+  opacity: 0.05;
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
+  transform: skew(30deg) scaleY(1) translate(0, 0);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Especificamos el código de la animación de cada bloque, como entrarán cuando arranque la web */
+
+@-webkit-keyframes bloque1 {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bloque1 {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes bloque2 {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bloque2 {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@-webkit-keyframes bloque3 {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bloque3 {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@-webkit-keyframes bloque4 {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bloque4 {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@-webkit-keyframes bloque5 {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bloque5 {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Variación del texto dependiendo del tamaño de la pantalla */
+
+@media screen and (max-width: 800px) {
+  h1 .fa-solid {
+    font-size: 15px;
+    color: yellow;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  h1 .fa-solid {
+    font-size: 20px;
+    color: white;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+}
